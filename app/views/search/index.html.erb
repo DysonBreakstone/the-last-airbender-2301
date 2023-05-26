@@ -9,17 +9,29 @@
       No photo available
   <% end %>
   <p>Allies:
-  <% resident.allies.each do |ally| %>
-    <ul>
-      <li><%= ally %></li>
-    </ul>
+  <% if resident.allies %>
+    <% resident.allies.each do |ally| %>
+      <ul>
+        <li><%= ally %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <% "None" %>
   <% end %></p>
   <p>Enemies:
-  <% resident.enemies.each do |enemy| %>
-    <ul>
-      <li><%= enemy %></li>
-    </ul>
+  <% if resident.enemies %>
+    <% resident.enemies.each do |enemy| %>
+      <ul>
+        <li><%= enemy %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    None
   <% end %></p>
   <p>Affiliations:
-  <% resident.affiliations %></p>
+  <% if resident.affiliations %>
+    <% resident.affiliations %></p>
+  <% else %>
+    None
+  <% end %>
 <% end %>
