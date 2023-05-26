@@ -1,0 +1,25 @@
+<%= "Total Residents: #{@facade.nation_count}" %>
+<% @facade.first_25.each do |resident| %>
+  <h2><%= "Name: #{resident.name}" %></h2>
+  <% if resident.photo_url %>
+    <p>Photo:
+    <img src="<%= resident.photo_url %>" alt="<%= resident.name %>", width="75", height="auto">
+    </p>
+  <% else %>
+      No photo available
+  <% end %>
+  <p>Allies:
+  <% resident.allies.each do |ally| %>
+    <ul>
+      <li><%= ally %></li>
+    </ul>
+  <% end %></p>
+  <p>Enemies:
+  <% resident.enemies.each do |enemy| %>
+    <ul>
+      <li><%= enemy %></li>
+    </ul>
+  <% end %></p>
+  <p>Affiliations:
+  <% resident.affiliations %></p>
+<% end %>
